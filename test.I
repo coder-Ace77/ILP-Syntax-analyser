@@ -48,6 +48,30 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 "while"              {printf("Token_while\n");}
 "for"              {printf("Token_for\n");}
 
+"as"            {printf("Token_as\n");}
+"break"         {printf("Token_break\n");}
+"continue"      {printf("Token_continue\n");}
+"const"        {printf("Token_const\n");}
+"return"        {printf("Token_return\n");}
+"mut"           {printf("Token_mut\n");}
+"crate"         {printf("Token_crate\n");}
+"enum"          {printf("Token_enum\n");}
+"extern"        {printf("Token_extern\n");} 
+"impl"          {printf("Token_impl\n");}
+"false"         {printf("Token_false\n");}
+"true"          {printf("Token_true\n");}
+"in"            {printf("Token_in\n");}
+"loop"          {printf("Token_loop\n");}
+"self"          {printf("Token_self_value\n");}
+"Self"          {printf("Token_self_type\n");}
+"static"        {printf("Token_static\n");}
+"type"          {printf("Token_type\n");}
+"use"           {printf("Token_use\n");}
+"where"         {printf("Token_where\n");}
+"async"         {printf("Token_async\n");}
+"await"         {printf("Token_await\n");}
+"dyn"           {printf("Token_dyn\n");}
+
 "let"            {printf("Token_let\n");}
 "i8"           {printf("Token_Integer8\n");}
 "i16"           {printf("Token_Integer16\n");}
