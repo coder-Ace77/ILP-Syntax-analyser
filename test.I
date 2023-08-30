@@ -8,7 +8,7 @@ ALPHANUM  [a-zA-Z0-9]
 SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 %%
 
-"//"       {printf("Comment detected %s\n",yytext);while (input() != '\n');}
+"//"       {printf("Comment \n");while (input() != '\n' || input!='EOF');}
 "/*"([^*]|"*"[^/])*"*/" { printf("Multiline Comment\n"); }
 {DIGIT}*"."{DIGIT}+ { printf("Literal_float\n"); }
 {DIGIT}+  { printf("Literal_number\n"); }
@@ -41,6 +41,7 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 "."              {printf("Operator_separator\n");}
 {DIGIT}+{ALPHA}+  { printf("Unknown %s\n", yytext); }
 "if"              {printf("Token_if\n");}
+"fn"               {printf("Token_function\n");}
 "else if"              {printf("Token_else_if\n");}
 "else"              {printf("Token_else\n");}
 "switch"              {printf("Token_switch\n");}
