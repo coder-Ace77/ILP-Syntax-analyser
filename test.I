@@ -65,6 +65,18 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 
 "bool"          {printf("Token_Bool\n");}
 "char"          {printf("Token_char\n");}
+"tup"           {printf("Token_Tuple\n");}
+
+";"             {printf("Statement_terminator\n");}
+"{"             {printf("Token_Open_Brace\n");}
+"}"             {printf("Token_Close_Brace\n");}
+"("             {printf("Token_Open_Parenthesis\n");}
+")"             {printf("Token_Close_Parenthesis\n");}
+"["             {printf("Token_Open_Bracket\n");}
+"]"             {printf("Token_Close_Bracket\n");}
+","             {printf("Token_Comma\n");}
+":"             {printf("Token_Colon\n");}
+
 
 {ALPHA}{ALPHANUM}*   { printf("Identifier: %s\n", yytext); }
 .          { printf("Unknown: %s\n", yytext); }
