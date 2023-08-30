@@ -9,7 +9,7 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 %%
 
 "//"       {printf("Comment detected %s\n",yytext);while (input() != '\n');}
-"/*".*"*/"       {printf("Multiline Comment detected\n");}
+"/*"([^*]|"*"[^/])*"*/" { printf("Multiline Comment\n"); }
 {DIGIT}*"."{DIGIT}+ { printf("Literal_float\n"); }
 {DIGIT}+  { printf("Literal_number\n"); }
 "'"{ALPHA}"'"       {printf("Literal_char\n");}
@@ -51,16 +51,15 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 "break"           {printf("Token_break\n");} // Adding "break" statement
 "continue"        {printf("Token_continue\n");} // Adding "continue" statement
 "fn"              {printf("Token_fn\n");} // Adding "fn" for function definition
-{DIGIT}+{ALPHA}*  { printf("Unknown: %s\n", yytext); } // Numeric identifier like "123abc"
-.                { printf("Unknown: %s\n", yytext); }
-\n               { /* Ignore newline characters */ }
 {ALPHA}{ALPHANUM}*   { printf("Identifier: %s\n", yytext); }
 .          { printf("Unknown: %s\n", yytext); }
 \n         { /* Ignore newline characters */ }
 %% 
 
+int yywrap() {
+    return 1;
+}
 
-int yywrap() {}
 int main() {
     yylex();
     return 0;
