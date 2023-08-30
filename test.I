@@ -11,6 +11,7 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 "//"       {printf("Comment detected %s\n",yytext);while (input() != '\n');}
 "/*".*"*/"       {printf("Multiline Comment detected\n");}
 {DIGIT}*"."{DIGIT}+ { printf("Literal_float\n"); }
+{DIGIT}+  { printf("Literal_number\n"); }
 "'"{ALPHA}"'"       {printf("Literal_char\n");}
 "\"".*"\""      {printf("Literal_string\n");}
 "++"             {printf("Operator_increment\n");}
