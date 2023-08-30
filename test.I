@@ -41,11 +41,19 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 "."              {printf("Operator_separator\n");}
 {DIGIT}+{ALPHA}+  { printf("Unknown %s\n", yytext); }
 "if"              {printf("Token_if\n");}
-"else if"              {printf("Token_else_if\n");}
-"else"              {printf("Token_else\n");}
-"switch"              {printf("Token_switch\n");}
-"while"              {printf("Token_while\n");}
-"for"              {printf("Token_for\n");}
+"else if"         {printf("Token_else_if\n");}
+"else"            {printf("Token_else\n");}
+"switch"          {printf("Token_switch\n");}
+"while"           {printf("Token_while\n");}
+"for"             {printf("Token_for\n");}
+"do"              {printf("Token_do\n");} // Adding "do" statement
+"return"          {printf("Token_return\n");} // Adding "return" statement
+"break"           {printf("Token_break\n");} // Adding "break" statement
+"continue"        {printf("Token_continue\n");} // Adding "continue" statement
+"fn"              {printf("Token_fn\n");} // Adding "fn" for function definition
+{DIGIT}+{ALPHA}*  { printf("Unknown: %s\n", yytext); } // Numeric identifier like "123abc"
+.                { printf("Unknown: %s\n", yytext); }
+\n               { /* Ignore newline characters */ }
 {ALPHA}{ALPHANUM}*   { printf("Identifier: %s\n", yytext); }
 .          { printf("Unknown: %s\n", yytext); }
 \n         { /* Ignore newline characters */ }
