@@ -41,6 +41,12 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 {DIGIT}+{ALPHA}+  { printf("Unknown %s\n", yytext); }
 {DIGIT}+  { printf("Number: %s\n", yytext); }
 {ALPHA}{ALPHANUM}*   { printf("Identifier: %s\n", yytext); }
+"if"              {printf("Token_if\n");}
+"else if"              {printf("Token_else_if\n");}
+"else"              {printf("Token_else\n");}
+"switch"              {printf("Token_switch\n");}
+"while"              {printf("Token_while\n");}
+"for"              {printf("Token_for\n");}
 .          { printf("Unknown: %s\n", yytext); }
 \n         { /* Ignore newline characters */ }
 %% 
