@@ -9,7 +9,7 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 %%
 
 "//"       {printf("Comment detected %s\n",yytext);while (input() != '\n');}
-"/*".*"*/"       {printf("Multiline Comment detected\n");}
+"/*"([^*]|"*"[^/])*"*/" { printf("Multiline Comment\n"); }
 {DIGIT}*"."{DIGIT}+ { printf("Literal_float\n"); }
 {DIGIT}+  { printf("Literal_number\n"); }
 "'"{ALPHA}"'"       {printf("Literal_char\n");}
@@ -71,8 +71,10 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 \n         { /* Ignore newline characters */ }
 %% 
 
+int yywrap() {
+    return 1;
+}
 
-int yywrap() {}
 int main() {
     yylex();
     return 0;
