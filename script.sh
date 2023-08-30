@@ -1,5 +1,5 @@
 #!/bin/bash
 
-lex $1
+lex lexAnalyser.I
 gcc lex.yy.c -o lex.yy
 ./lex.yy
