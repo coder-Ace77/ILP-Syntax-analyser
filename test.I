@@ -46,6 +46,26 @@ SYMBOLS [!@#$%^&*()_+|~=`{}\[\]:";'<>?,./]
 "switch"              {printf("Token_switch\n");}
 "while"              {printf("Token_while\n");}
 "for"              {printf("Token_for\n");}
+
+"let"            {printf("Token_let\n");}
+"i8"           {printf("Token_Integer8\n");}
+"i16"           {printf("Token_Integer16\n");}
+"i32"           {printf("Token_Integer32\n");}
+"i64"           {printf("Token_Integer64\n");}
+"i128"           {printf("Token_Integer128\n");}
+
+"u8"           {printf("Token_UnSigned_Integer8\n");}
+"u16"           {printf("Token_UnSigned_Integer16\n");}
+"u32"           {printf("Token_UnSigned_Integer32\n");}
+"u64"           {printf("Token_UnSigned_Integer64\n");}
+"u128"           {printf("Token_UnSigned_Integer128\n");}
+
+"f32"           {printf("Token_Float32\n");}
+"f64"           {printf("Token_Float64\n");}
+
+"bool"          {printf("Token_Bool\n");}
+"char"          {printf("Token_char\n");}
+
 {ALPHA}{ALPHANUM}*   { printf("Identifier: %s\n", yytext); }
 .          { printf("Unknown: %s\n", yytext); }
 \n         { /* Ignore newline characters */ }
